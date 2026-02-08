@@ -1,0 +1,30 @@
+ALTER TABLE `invoice_master` ADD `ReferenceNo` VARCHAR(255) NULL DEFAULT NULL AFTER `LeadID`;
+
+
+ALTER TABLE invoice_master
+ADD COLUMN RefNo VARCHAR(100),
+ADD COLUMN package_id INT,
+ADD COLUMN sub_agent VARCHAR(100),
+ADD COLUMN FlightPNR VARCHAR(100),
+
+ADD COLUMN FlightNoDeparture VARCHAR(50),
+ADD COLUMN SectorDeparture VARCHAR(50),
+ADD COLUMN FlightDateDeparture DATE,
+ADD COLUMN FlightTimeDeparture VARCHAR(10),
+ADD COLUMN FlightDateArrivalDeparture DATE,
+ADD COLUMN FlightTimeArrivalDeparture VARCHAR(10),
+
+ADD COLUMN FlightNoReturn VARCHAR(50),
+ADD COLUMN SectorReturn VARCHAR(50),
+ADD COLUMN FlightDateReturn DATE,
+ADD COLUMN FlightDepartureTimeReturn VARCHAR(10),
+ADD COLUMN FlightArrivalDateReturn DATE,
+ADD COLUMN FlightArrivalTimeReturn VARCHAR(10),
+
+ADD COLUMN SaleRate DECIMAL(10,2),
+ADD COLUMN SaleCurrecy VARCHAR(10),
+ADD COLUMN TicketCurrency VARCHAR(10),
+ADD COLUMN PurchaseRate DECIMAL(10,2),
+ADD COLUMN PurchaseCurrency VARCHAR(10),
+ADD COLUMN FlightNights INT;
+
