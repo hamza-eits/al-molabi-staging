@@ -1741,7 +1741,14 @@ $log= DB::table('log')->insertGetId($logdata);
     
   
 
-    $saleman = User::getUserList();
+    // $saleman = User::getUserList();
+    $query = DB::table('user')->where('Active', 'Yes');
+
+    if (Session::get('UserType') !== 'Admin') {
+        $query->where('UserID', Session::get('UserID'));
+    }
+
+    $saleman = $query->get();
      
     
 
