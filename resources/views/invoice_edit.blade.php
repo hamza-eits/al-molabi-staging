@@ -223,8 +223,8 @@
               <th width="2%" class="p-1"><input id="check_all"  type="checkbox"/></th>
               <th width="5%">Item</th>
               <th width="15%">Supplier</th>
-              <th width="5%">Ref No</th>
-              <th width="5%">Visa </th>
+              <!-- <th width="5%">Ref No</th>
+              <th width="5%">Visa </th> -->
               <th width="10%">PAX Name</th>
               <th width="8%">PNR</th>
               <th width="5%">Sector</th>
@@ -261,13 +261,13 @@
 
                 </td>
 
-                <td>
+                <!-- <td>
                   <input type="text" name="RefNo[]" id="RefNo_{{$no}}" class="form-control     changesNo" autocomplete="off"  value="{{$value1->RefNo}}" >
-                </td>
+                </td> -->
 
-                <td>
+                <!-- <td>
                   <input type="text" name="VisaType[]" id="VisaType_{{$no}}" class="   form-control changesNo" autocomplete="off" value="{{$value1->VisaType}}"  >
-                </td>
+                </td> -->
                 <td>
                   <input type="text" name="PaxName[]" id="PaxName_{{$no}}" class=" form-control changesNo" autocomplete="off"  value="{{$value1->PaxName}}" >
                 </td>
@@ -492,8 +492,8 @@ $(".addmore").on('click',function(){
 
   // html += '<td><select name="ItemID[]" id="ItemID_'+i+'" class="form-select changesNoo"><option value="">Select Item</option><option value="">b</option></select></td>';
   html += '<td><select name="SupplierID[]" id="SupplierID_'+i+'"  onchange="ajax_balance(this.value);" class="js-example-basic-single form-select" style="width:200px">@foreach ($supplier as $key => $value) <option value="{{$value->PartyID}}">{{$value->PartyType}}-{{$value->PartyID}}-{{$value->PartyName}}</option>@endforeach</select></td>';
-  html += '<td><input type="text" name="RefNo[]" id="RefNo_'+i+'" class="form-control  " ></td>';
-  html += '<td><input type="text" name="VisaType[]" id="VisaType_'+i+'" class="form-control " ></td>';
+  // html += '<td><input type="text" name="RefNo[]" id="RefNo_'+i+'" class="form-control  " ></td>';
+  // html += '<td><input type="text" name="VisaType[]" id="VisaType_'+i+'" class="form-control " ></td>';
   html += '<td><input type="text" name="PaxName[]" id="PaxName_'+i+'" class="form-control " ></td>';
   html += '<td><input type="text" name="PNR[]" id="PNR_'+i+'" class="form-control " ></td>';
   html += '<td><input type="text" name="Sector[]" id="Sector_'+i+'" class="form-control " ></td>';
