@@ -2420,8 +2420,8 @@ $log= DB::table('log')->insertGetId($logdata);
     $supplier = Party::getSupplierList();
      
     $party = Party::getPartyList('C');
-    $saleman = User::getUserList();
-    // $saleman = DB::table('user')->where('UserType','Saleman')->where('Active','Yes')->get();
+    // $saleman = User::getUserList();
+    $saleman = DB::table('user')->where('UserType','Saleman')->where('Active','Yes')->get();
     $vhno = DB::table('invoice_master')->select(DB::raw('max(InvoiceMasterID)+1 as VHNO'))->get();
 
     $invoice_mst = DB::table('invoice_master')->where('InvoiceMasterID', $id)->get();
