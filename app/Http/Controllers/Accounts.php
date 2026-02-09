@@ -5482,7 +5482,9 @@ else
     $pagetitle = 'Party Balance';
 
     $party = Party::getPartyList('C');
-    $branches = Branch::getBranchList();
+    // $branches = Branch::getBranchList();
+    $branches = Branch::all();
+    // dd($branches);
 
     return view('reports.party_balance', compact('pagetitle', 'party','branches'));
   }
