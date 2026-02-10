@@ -310,7 +310,7 @@
  
                             <td>
                               <input type="text" name="PaxName[]" id="PaxName_1" class=" form-control  "
-                                autocomplete="off" placeholder="PaxName"><input type="text" name="PNR[]" id="PNR_1" class=" form-control  " autocomplete="off" placeholder="PNR">
+                                autocomplete="off" placeholder="PaxName"><input type="text" name="PNR[]" id="PNR_1" class=" form-control  " autocomplete="off" placeholder="PNR" readonly>
                             </td>
                            
                             <td>
@@ -320,14 +320,14 @@
                             <td>
                               <input type="number" name="Fare[]" id="Fare_1" class=" form-control changesNo" 
                                 autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;"
-                                onpaste="return false;" step="0.01" placeholder="Fare">
+                                onpaste="return false;" step="0.01" placeholder="Fare" readonly>
                             </td>
                             <td>
                               <input type="number" name="Taxable[]" id="Taxable_1" class=" form-control  changesNo  "
                                 autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;"
-                                onpaste="return false;" step="0.01"  ><input type="number" name="TaxAmount[]" id="TaxAmount_1" class="form-control changesNo"
+                                onpaste="return false;" step="0.01"  readonly><input type="number" name="TaxAmount[]" id="TaxAmount_1" class="form-control changesNo"
                                 autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;"
-                                onpaste="return false;" step="0.01" placeholder="VAT Amount">
+                                onpaste="return false;" step="0.01" placeholder="VAT Amount" readonly>
                             </td>
                             <td>
                               <input type="number" name="Service[]" id="Service_1" class=" form-control  "
@@ -515,11 +515,11 @@ var i = $('table tr').length;
         
         html += '<td class="d-none"><input type="text" name="RefNo[]" id="RefNo_' + i + '" class="form-control" placeholder="RefNo"><input type="text" name="VisaType[]" id="VisaType_' + i + '" class="form-control" placeholder="Visa"></td>';
         // html += '<td>visa</td>';
-        html += '<td><input type="text" name="PaxName[]" id="PaxName_' + i + '" class="form-control" placeholder="PaxName"><input type="text" name="PNR[]" id="PNR_' + i + '" class="form-control" placeholder="PNR"></td>';
+        html += '<td><input type="text" name="PaxName[]" id="PaxName_' + i + '" class="form-control" placeholder="PaxName"><input type="text" name="PNR[]" id="PNR_' + i + '" class="form-control" placeholder="PNR" readonly></td>';
         // html += '<td>pnr</td>';
         html += '<td><input type="text" name="Sector[]" id="Sector_' + i + '" class="form-control" placeholder="Sector"></td>';
-        html += '<td><input type="text"  name="Fare[]" id="Fare_' + i + '" class="form-control" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder="Fare"></td>';
-        html += '<td><input type="text" name="Taxable[]" id="Taxable_' + i + '" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"  placeholder="VAT%"><input type="text" name="TaxAmount[]" id="TaxAmount_' + i + '" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder="VAT Amt"></td>';
+        html += '<td><input type="text"  name="Fare[]" id="Fare_' + i + '" class="form-control" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder="Fare" readonly></td>';
+        html += '<td><input type="text" name="Taxable[]" id="Taxable_' + i + '" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"  placeholder="VAT%" readonly><input type="text" name="TaxAmount[]" id="TaxAmount_' + i + '" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder="VAT Amt" readonly></td>';
         html += '<td><input type="text" name="Service[]" id="Service_' + i + '" class="form-control" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder="Service"><input type="text" name="Discount[]" id="discount_' + i + '" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" placeholder="Discount"></td>';
         
         // html += '<td>tax</td>';

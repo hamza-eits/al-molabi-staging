@@ -261,27 +261,27 @@
 
                 </td>
 
-                <!-- <td>
+                <td class="d-none">
                   <input type="text" name="RefNo[]" id="RefNo_{{$no}}" class="form-control     changesNo" autocomplete="off"  value="{{$value1->RefNo}}" >
-                </td> -->
+                </td> 
 
-                <!-- <td>
+                <td class="d-none">
                   <input type="text" name="VisaType[]" id="VisaType_{{$no}}" class="   form-control changesNo" autocomplete="off" value="{{$value1->VisaType}}"  >
-                </td> -->
+                </td> 
                 <td>
                   <input type="text" name="PaxName[]" id="PaxName_{{$no}}" class=" form-control changesNo" autocomplete="off"  value="{{$value1->PaxName}}" >
                 </td>
                 <td>
-                  <input type="text" name="PNR[]" id="PNR_{{$no}}" class=" form-control changesNo" autocomplete="off"  value="{{$value1->PNR}}">
+                  <input type="text" name="PNR[]" id="PNR_{{$no}}" class=" form-control changesNo" autocomplete="off"  value="{{$value1->PNR}}" readonly>
                 </td>
                 <td>
                   <input type="text" name="Sector[]" id="Sector_{{$no}}" class=" form-control changesNo" autocomplete="off" value="{{$value1->Sector}}" >
                 </td>
               <td>
-                <input type="number" name="Fare[]" id="Fare_{{$no}}" class=" form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01"  value="{{$value1->Fare}}">
+                <input type="number" name="Fare[]" id="Fare_{{$no}}" class=" form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01"  value="{{$value1->Fare}}" readonly>
               </td>
               <td>
-                <input type="number" name="Taxable[]"  id="Taxable_{{$no}}" class=" form-control  changesNo " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01" value="5" >
+                <input type="number" name="Taxable[]"  id="Taxable_{{$no}}" class=" form-control  changesNo " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01" value="5" readonly>
               </td>
               <td>
                 <input type="number" name="Service[]" id="Service_{{$no}}" class=" form-control" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01" value="{{$value1->Service}}">
@@ -297,7 +297,7 @@
               
               
               <td>
-                <input type="number" name="TaxAmount[]" id="TaxAmount_{{$no}}" class=" form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01" value="{{$value1->Taxable}}">
+                <input type="number" name="TaxAmount[]" id="TaxAmount_{{$no}}" class=" form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01" value="{{$value1->Taxable}}" readonly>
               </td>
               <td>
                 <input type="number" name="Discount[]" id="discount_{{$no}}" class=" form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" step="0.01" value="{{$value1->Discount}}">
@@ -492,17 +492,17 @@ $(".addmore").on('click',function(){
 
   // html += '<td><select name="ItemID[]" id="ItemID_'+i+'" class="form-select changesNoo"><option value="">Select Item</option><option value="">b</option></select></td>';
   html += '<td><select name="SupplierID[]" id="SupplierID_'+i+'"  onchange="ajax_balance(this.value);" class="js-example-basic-single form-select" style="width:200px">@foreach ($supplier as $key => $value) <option value="{{$value->PartyID}}">{{$value->PartyType}}-{{$value->PartyID}}-{{$value->PartyName}}</option>@endforeach</select></td>';
-  // html += '<td><input type="text" name="RefNo[]" id="RefNo_'+i+'" class="form-control  " ></td>';
-  // html += '<td><input type="text" name="VisaType[]" id="VisaType_'+i+'" class="form-control " ></td>';
+  html += '<td class="d-none"><input type="text" name="RefNo[]" id="RefNo_'+i+'" class="form-control" ></td>';
+  html += '<td class="d-none"><input type="text" name="VisaType[]" id="VisaType_'+i+'" class="form-control" ></td>';
   html += '<td><input type="text" name="PaxName[]" id="PaxName_'+i+'" class="form-control " ></td>';
-  html += '<td><input type="text" name="PNR[]" id="PNR_'+i+'" class="form-control " ></td>';
+  html += '<td><input type="text" name="PNR[]" id="PNR_'+i+'" class="form-control " readonly></td>';
   html += '<td><input type="text" name="Sector[]" id="Sector_'+i+'" class="form-control " ></td>';
   html += '<td><input type="text" name="Fare[]" id="Fare_'+i+'" class="form-control  " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
-  html += '<td><input type="text" name="Taxable[]" id="Taxable_'+i+'" class="form-control changesNo   " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" value="5"></td>';
+  html += '<td><input type="text" name="Taxable[]" id="Taxable_'+i+'" class="form-control changesNo   " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" value="5" readonly></td>';
   html += '<td><input type="text" name="Service[]" id="Service_'+i+'" class="form-control  " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
   html += '<td class="d-none"><input type="text" name="OPVAT[]" id="OPVAT_'+i+'" class="form-control  changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
   html += '<td class="d-none"><input type="text" name="IPVAT[]" id="IPVAT_'+i+'" class="form-control  changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
-  html += '<td><input type="text" name="TaxAmount[]" id="TaxAmount_'+i+'" class="form-control changesNo " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
+  html += '<td><input type="text" name="TaxAmount[]" id="TaxAmount_'+i+'" class="form-control changesNo " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" readonly></td>';
   html += '<td><input type="text" name="Discount[]" id="discount_'+i+'" class="form-control changesNo " autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
   html += '<td><input type="text" name="ItemTotal[]" id="total_'+i+'" class="form-control totalLinePrice changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
  
