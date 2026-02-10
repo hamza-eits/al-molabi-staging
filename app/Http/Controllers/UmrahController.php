@@ -18,7 +18,9 @@ class UmrahController extends Controller
 {
     public function Umrah()
   {
-    
+      if(env('UMRAH_ENABLED') == 0){
+          return redirect('Dashboard');
+      }
     $pagetitle = 'Umrah';
 
       ////////////////////////////END SCRIPT ////////////////////////////////////////////////      
@@ -160,7 +162,9 @@ if ($request->has('Phone') && !empty($request->Phone)) {
    
   public function UmrahCreate()
   {
-   
+    if(env('UMRAH_ENABLED') == 0){
+          return redirect('Dashboard');
+      }
    // $currentDate = Carbon::now();
 
    // dd($currentDate->subDays(10));
@@ -1015,7 +1019,9 @@ $validator = Validator::make($request->all(), [
 
   public function UmrahRefund($id)
   {
-    
+      if(env('UMRAH_ENABLED') == 0){
+          return redirect('Dashboard');
+      }
         // dd('reached');
         $pagetitle = 'Edit Umrah';
         $party = DB::table('party')->get();
@@ -1046,7 +1052,9 @@ $validator = Validator::make($request->all(), [
 
   public function UmrahEdit($id)
   {
-    
+      if(env('UMRAH_ENABLED') == 0){
+          return redirect('Dashboard');
+      }
         // dd('reached');
         $pagetitle = 'Edit Umrah';
         $party = DB::table('party')->get();

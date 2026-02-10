@@ -46,9 +46,21 @@
 
                 </li>
 
+                 <li>
+
+                    <a href="{{route('umrah-invoice-master.index')}}" class="waves-effect">
+
+                        <i class="fas fa-kaaba font-size-16 text-warning "></i>
+
+                        <span key="t-calendar">Voucher</span>
+
+                    </a>
+
+                </li>
 
 
-                <li>
+
+                <li class="d-none">
 
                     <a href="{{URL('/Umrah')}}" class="waves-effect">
 
