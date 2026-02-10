@@ -1056,25 +1056,40 @@ class Accounts extends Controller
     // dd($request->VoucherTypeID);
      // dd(  $voucher_type);
 
-    $voucher_master = DB::table('v_voucher_master')
-      // ->whereBetween('Date',array($request->StartDate,$request->EndDate))
-      ->where('VoucherMstID', $id)
-      ->when(session('UserType') != 'SuperAdmin', function ($query) {
-        return $query->where('BranchID', session('BranchID'));
-        })
-      ->get();
+    // $voucher_master = DB::table('v_voucher_master')
+    //   // ->whereBetween('Date',array($request->StartDate,$request->EndDate))
+    //   ->where('VoucherMstID', $id)
+    //   ->when(session('UserType') != 'SuperAdmin', function ($query) {
+    //     return $query->where('BranchID', session('BranchID'));
+    //     })
+    //   ->get();
+ $voucher_master = DB::table('v_voucher_master as vm')
+    ->leftJoin('voucher_type as vt', 'vt.VoucherCode', '=', 'vm.VoucherCode')
+    ->where('vm.VoucherMstID', $id)
+    ->when(session('UserType') != 'SuperAdmin', function ($query) {
+        return $query->where('vm.BranchID', session('BranchID'));
+    })
+    ->select(
+        'vm.*',
+        'vt.VoucherTypeName'
+    )
+    ->first();
+
+
     
-     $voucherTitles = [
-      'BR' => 'RECEIPT VOUCHER',
-      'CR' => 'RECEIPT VOUCHER',
-      'BP' => 'PAYMENT VOUHCER',
-      'CP' => 'PAYMENT VOUCHER',
-      'JV' => 'JOURNAL VOUCHER',
-    ];
+    //  $voucherTitles = [
+    //   'BR' => 'RECEIPT VOUCHER',
+    //   'CR' => 'RECEIPT VOUCHER',
+    //   'BP' => 'PAYMENT VOUHCER',
+    //   'CP' => 'PAYMENT VOUCHER',
+    //   'JV' => 'JOURNAL VOUCHER',
+    // ];
 
- 
+    $voucherNumber = DB::table('voucher_master')
+      ->where('VoucherMstID', $id)
+      ->first()->Voucher;
 
-    return view('voucher_receipt_view', compact('pagetitle', 'voucher_master', 'voucherTitles'));
+    return view('voucher_receipt_view', compact('pagetitle', 'voucher_master', 'voucherNumber'));
   }
 
   public  function VoucherDelete($id)

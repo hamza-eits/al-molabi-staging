@@ -258,8 +258,9 @@
 
         <!-- Receipt Header -->
         <div class="receipt-header">
-            <div class="receipt-number"><?php echo e($voucher_master[0]->Voucher); ?></div>
-            <div class="receipt-title">RECEIPT VOUCHER</div>
+            <div class="receipt-number"><?php echo e($voucherNumber); ?></div>
+            
+            <div class="receipt-title"><?php echo e(optional($voucher_master)->VoucherTypeName ?? 'JOURNAL VOUCHER'); ?></div>
             <div class="date-section">
                 <span>Date:</span>
             <span style="border-bottom:1px dashed black ">&nbsp;&nbsp;&nbsp;<?php echo e(date('d-m-Y', strtotime($voucher[0]->Date))); ?>&nbsp;&nbsp;&nbsp;</span>
