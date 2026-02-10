@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>INVOICE</title>
+<title>Untitled Document</title>
 <style type="text/css">
 
     @page {
@@ -36,17 +36,7 @@
 </style>
 </head>
 <?php 
-$company = DB::table('company')->first(); 
-
-
-?>
-
-<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.1; ">
-  <img src="{{ asset('documents/'.$company->BackgroundLogo) }}" alt="Background Logo" style="max-width: 100%; height: auto;">
-</div>
-
-
-
+$company = DB::table('company')->first(); ?>
 <body onload="window.print();">
 @if($balance>0)
   <img align="right" src="{{asset('assets/images/unpaid-invoice.png')}}" alt="" class="paid-invoice-img">
@@ -62,8 +52,8 @@ $company = DB::table('company')->first();
       <th width="50%" scope="col">&nbsp;</th>
     </tr>
     <tr>
-      <td width="50%" style="line-height: 12pt">
-          {{$company->Address}}<br />
+     <td width="50%" style="line-height: 12pt">
+        {{$company->Address}}<br />
         {{$company->Contact}} <br>
         {{$company->Mobile}} <br />
         {{$company->Email}}
@@ -77,7 +67,7 @@ $company = DB::table('company')->first();
       <td></td>
       <td width="50%" align="right" style="font-size: 28pt; font-weight: bolder;">
         <br><br>
-          TAX INVOICE 
+          {{ env('APP_TAX_NAME')}} INVOICE 
          
       </td>
     </tr>
@@ -85,7 +75,7 @@ $company = DB::table('company')->first();
       <td>&nbsp;</td>
       <td>
         <div align="right" style="margin-top: 15px;"><strong>Balance Due<br />
-        {{env('APP_CURRENCY')}}{{ number_format($invoice_mst[0]->Balance, 2) }}</strong></div><br>
+        AED{{ number_format($invoice_mst[0]->Balance, 2) }}</strong></div><br>
       </td>
     </tr>
   </table>
@@ -93,12 +83,11 @@ $company = DB::table('company')->first();
 <table width="100%" border="0">
   <tr>
     <th width="50%" valign="bottom" scope="col"><div align="left">Bill To<br />
-      {{$invoice_mst[0]->PartyName}} <br /> {{$invoice_mst[0]->Phone}} <br>
-    TRN {{$invoice_mst[0]->TRN}} </div></th>
+      {{$invoice_mst[0]->PartyName}} <br /> {{$invoice_mst[0]->Phone}} </div></th>
     <th width="50%" scope="col"><div align="right">
       <table width="75%" border="0" align="right">
         <tr >
-          <th align="right" style="text-align:right;"  >Tax Invoice No :</th>
+          <th align="right" style="text-align:right;"  >Invoice No :</th>
           <td align="right" style="text-align:right;"  >{{$invoice_mst[0]->InvoiceCode}}</td>
         </tr>
          <tr >
@@ -116,7 +105,7 @@ $company = DB::table('company')->first();
       
         <tr>
           <td align="right" style="text-align:right;"  >VAT No. :</td>
-          <td align="right" style="text-align:right;"  >{{ $company->TRN }}</td>
+          <td align="right" style="text-align:right;"  >100535182800003</td>
         </tr>
       </table>
     </div></th>
@@ -124,12 +113,12 @@ $company = DB::table('company')->first();
  
 </table>
  <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr style="color: white; " >
-    <td align="center" height="25" bgcolor="#333333" >#</p></td>
-    <td align="center" bgcolor="#333333" >Item Descrption </p></td>
-      <td align="center" bgcolor="#333333" >Taxable<br />
+  <tr style="color: white; vertical-align: middle;" >
+    <td align="center" height="35" bgcolor="#333333" >#</p></td>
+    <td align="left" bgcolor="#333333" >Item Descrption </p></td>
+    <!--   <td align="center" bgcolor="#333333" >Taxable<br />
     Amount</p></td>
-    <td align="center" bgcolor="#333333" >VAT</p></td>
+    <td align="center" bgcolor="#333333" >VAT</p></td> -->
     <td align="center" bgcolor="#333333" >Amount</p></td>
   </tr>
  
@@ -154,32 +143,34 @@ $total=$total + $value->Total;
   <tr >
     <td >{{++$key}}</td>
     <td style="padding-top: 10px;">{{$value->ItemName}}<br>PAX:{{$value->PaxName}}<br>PNR:{{$value->PNR}}<br>Sector:{{$value->Sector}}</td>
-       <td align="center">{{number_format($value->Service,2)}}</td>
-    <td align="center">{{number_format($value->Taxable,2)}}<br>  {{($value->Taxable>0) ? '5.00%' : '' }} </td>
+      <!--  <td align="center">{{number_format($value->Service,2)}}</td>
+    <td align="center">{{number_format($value->Taxable,2)}}<br>  {{($value->Taxable>0) ? '5.00%' : '' }} </td> -->
     <td align="center">{{number_format($value->Total,2)}}</td>
   </tr>
 @endforeach
 
   <tr>
-    <td colspan="8"><hr noshade="noshade" /></td>
+    <td colspan="3"><hr noshade="noshade" /></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
       <td align="right"><strong>SubTotal</strong></td>
-     <td align="center">{{number_format($service,2)}}</td>
-     <td align="center">{{number_format($taxable,2)}}</td>
+     <!-- <td align="center">{{number_format($service,2)}}</td> -->
+     <!-- <td align="center">{{number_format($taxable,2)}}</td> -->
      <td align="center">{{number_format($total,2)}}</td>
     
   </tr>
   <tr>
-    <td colspan="8"><hr noshade="noshade" /></td>
+    <td colspan="3"><hr noshade="noshade" /></td>
   </tr>
   <tr>
-    <td colspan="8"><table width="50%" border="0" align="right">
+    <td colspan="3">
+
+      <table width="50%" border="0" align="right">
 
       <tr>
         <td height="25" align="right" style="padding-right: 25px;"><strong>Total</strong></td>
-        <td height="25"><strong>{{env('APP_CURRENCY')}}{{number_format($invoice_mst[0]->Total,2)}}</strong></td>
+        <td height="25"><strong>AED{{number_format($invoice_mst[0]->Total,2)}}</strong></td>
       </tr>
       <tr>
         <td height="25" align="right" style="padding-right: 25px;">Payment Made </td>
@@ -187,7 +178,7 @@ $total=$total + $value->Total;
       </tr>
       <tr style="background-color: #e9e9e9;">
         <td height="25" align="right" style="padding-right: 25px;"><strong>Balance Due</strong> </td>
-        <td height="25"><strong>{{env('APP_CURRENCY')}}{{number_format($invoice_mst[0]->Balance,2)}}</strong></td>
+        <td height="25"><strong>AED{{number_format($invoice_mst[0]->Balance,2)}}</strong></td>
       </tr>
 
         <tr  >
@@ -198,59 +189,60 @@ $total=$total + $value->Total;
     </table></td>
   </tr>
 </table>
-<p>VAT Summary</p>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- <p>TAT Summary</p> -->
+<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr style="background-color: #333333; color: white;"  >
     <td  height="25" scope="col" align="left" width="50%" style="padding-left: 10px;" >Tax Detail </td>
-    <td scope="col" align="right" >Taxable Amount ({{env('APP_CURRENCY')}}) </td>
-    <td scope="col" align="right" style="padding-right: 10px;">VAT Amount ({{env('APP_CURRENCY')}}) </td>
+    <td scope="col" align="right" >Taxable Amount (AED) </td>
+    <td scope="col" align="right" style="padding-right: 10px;">VAT Amount (AED) </td>
   </tr>
   <tr>
     <td height="25" style="padding-left: 10px;">Standard Rate (5%) </td>
-    <td align="right">{{env('APP_CURRENCY')}}{{number_format($service,2)}}</td>
-    <td align="right" style="padding-right: 10px;">{{env('APP_CURRENCY')}}{{number_format($taxable,2)}}</td>
+    <td align="right">AED{{number_format($service,2)}}</td>
+    <td align="right" style="padding-right: 10px;">AED{{number_format($taxable,2)}}</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-</table>
+</table> -->
 <p>Notes</p>
 <p>Thanks for your business.</p>
+ 
 <hr noshade="noshade" />
-<p>&nbsp;  </p>
-<hr noshade="noshade" />
-<p>Voucher Details</p>
- @if(count($voucher_detail)>0)    
-<table border="1" style="width: 100%; border-collapse: collapse;">
-  <thead style="background-color: #343a40; color: white;">
-    <tr>
-      <th width="15">S.No</th>
-      <th width="150">Date</th>
-      <th width="150">Account</th>
-      <th width="350">VoucherNo</th>
-      <th width="100">Debit</th>
-      <th width="100">Credit</th>
-    </tr>
-  </thead>
+<table width="615" border="0">
+  <tr>
+    <th colspan="2" scope="col" align="left"><strong>Banking Details</strong></th>
+  </tr>
+  <tr>
+    <td width="143" valign="top">Account Name</td>
+    <td width="547" valign="top">AL MOLABI HAJ & UMRAH</td>
+  </tr>
+  <tr>
+    <td valign="top">Bank Name</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top">Swift Code</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top">Account #</td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top">IBAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+    <td valign="top"></td>
+  </tr>
+  <tr>
+    <td valign="top">Address</td>
+    <td valign="top">
+    Near Latifa Masjid, Farj Al Murar Deira Dubai - U.A.E.
+    </td>
+  </tr>
+</table>
 
-<tbody>
-@foreach ($voucher_detail as $key =>$value)
- <tr>
- <td>{{$key+1}}</td>
- <td>{{dateformatman2($value->Date)}}</td>
- <td>{{$value->ChartOfAccountName}}</td>
- <td>{{$value->Voucher}}</td>
- <td>{{$value->Debit}}</td>
- <td>{{$value->Credit}}</td>
- </tr>
- @endforeach   
- </tbody>
- </table>
- @else
-   <p class=" text-danger">No data found</p>
- @endif   
 
 </body>
 </html>
