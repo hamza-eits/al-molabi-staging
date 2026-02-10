@@ -1,63 +1,62 @@
-@extends('tmp')
-@section('title', $pagetitle)
+<?php $__env->startSection('title', $pagetitle); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <link type="text/css" rel="stylesheet"
   href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Noto+Serif:400,700">
 <!-- Bootstrap core CSS -->
-<link href="{{asset('assets/invoice/css/jquery-ui.min.css')}}" rel="stylesheet">
-<link href="{{asset('assets/invoice/css/datepicker.css')}}" rel="stylesheet">
-<link href="{{asset('assets/invoice/css/font-awesome.min.css')}}" rel="stylesheet">
-<link href="{{asset('assets/invoice/css/style.css')}}" rel="stylesheet">
+<link href="<?php echo e(asset('assets/invoice/css/jquery-ui.min.css')); ?>" rel="stylesheet">
+<link href="<?php echo e(asset('assets/invoice/css/datepicker.css')); ?>" rel="stylesheet">
+<link href="<?php echo e(asset('assets/invoice/css/font-awesome.min.css')); ?>" rel="stylesheet">
+<link href="<?php echo e(asset('assets/invoice/css/style.css')); ?>" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="{{asset('assets/src/jquery.modallink-1.0.0.css')}}" />
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/src/jquery.modallink-1.0.0.css')); ?>" />
 
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-extended.min.css')}}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/bootstrap-extended.min.css')); ?>">
 <!-- Custom styles for this template -->
-<link href="{{asset('assets/invoice/css/sticky-footer-navbar.css')}}" rel="stylesheet">
+<link href="<?php echo e(asset('assets/invoice/css/sticky-footer-navbar.css')); ?>" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script src="{{asset('assets/invoice/js/ie.js')}}"></script>
+<script src="<?php echo e(asset('assets/invoice/js/ie.js')); ?>"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/plugins/forms/pickers/form-flat-pickr.min.css')}}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/plugins/forms/pickers/form-flat-pickr.min.css')); ?>">
 
-<link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="<?php echo e(asset('assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css" />
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
   rel="stylesheet">
 
 <!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/css/vendors.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/css/forms/select/select2.min.css')}}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/vendors/css/vendors.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/vendors/css/pickers/flatpickr/flatpickr.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/vendors/css/forms/select/select2.min.css')); ?>">
 <!-- END: Vendor CSS-->
 
 <!-- BEGIN: Theme CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-extended.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/components.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/themes/dark-layout.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/themes/bordered-layout.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/themes/semi-dark-layout.min.css')}}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/bootstrap-extended.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/colors.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/components.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/themes/dark-layout.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/themes/bordered-layout.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/themes/semi-dark-layout.min.css')); ?>">
 
 <!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/core/menu/menu-types/vertical-menu.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/plugins/forms/pickers/form-flat-pickr.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/pages/app-invoice.min.css')}}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/core/menu/menu-types/vertical-menu.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/plugins/forms/pickers/form-flat-pickr.min.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/pages/app-invoice.min.css')); ?>">
 <!-- END: Page CSS-->
 
 <!-- BEGIN: Custom CSS-->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/style.css')); ?>">
 <!-- END: Custom CSS-->
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
@@ -95,11 +94,11 @@
     <div class="container-fluid">
 
 
-      <form action="{{URL('/VoucherUpdate')}}" method="post">
+      <form action="<?php echo e(URL('/VoucherUpdate')); ?>" method="post">
 
 
-        <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
-        <input type="hidden" name="VoucherMstID" value="{{$voucher_master[0]->VoucherMstID}}">
+        <input type="hidden" name="_token" id="csrf" value="<?php echo e(Session::token()); ?>">
+        <input type="hidden" name="VoucherMstID" value="<?php echo e($voucher_master[0]->VoucherMstID); ?>">
 
 
         <div class="card shadow-sm">
@@ -109,7 +108,7 @@
 
             <div class="row">
 
-              <!-- <img src="{{asset('assets/images/logo/ft.png')}}" alt=""> -->
+              <!-- <img src="<?php echo e(asset('assets/images/logo/ft.png')); ?>" alt=""> -->
 
 
 
@@ -117,11 +116,12 @@
 
 
                 <input type="hidden" name="VoucherType" id="VoucherType" class="form-control"
-                  value="{{$voucher_master[0]->VoucherCodeID}}">
+                  value="<?php echo e($voucher_master[0]->VoucherCodeID); ?>">
 
                 <textarea name="Narration_mst" id="Narration" cols="30" rows="5" class="form-control "
                   placeholder="Narration">
-  {{$voucher_master[0]->Narration}}
+  <?php echo e($voucher_master[0]->Narration); ?>
+
 
 </textarea>
                 <div class="clearfix mt-1"></div>
@@ -140,7 +140,7 @@
                       </div>
                       <div class="col-sm-9">
                         <div id="vhno_div"> <input type="text" class="form-control" name="Voucher" id="Voucher"
-                            value="{{$voucher_master[0]->Voucher}}" readonly>
+                            value="<?php echo e($voucher_master[0]->Voucher); ?>" readonly>
                         </div>
                       </div>
                     </div>
@@ -153,9 +153,10 @@
                       <div class="col-sm-9">
                         <select class="form-select changesNooo" name="InvoiceType1" id="InvoiceType1">
                           <?php foreach ($voucher_type as $key => $value): ?>
-                          <option value="{{$value->VoucherTypeID}}-{{$value->VoucherCode}}" {{($value->VoucherTypeID==
-                            $voucher_master[0]->VoucherCodeID) ? 'selected=selected':'' }}
-                            >{{$value->VoucherCode}}-{{$value->VoucherTypeName}}</option>
+                          <option value="<?php echo e($value->VoucherTypeID); ?>-<?php echo e($value->VoucherCode); ?>" <?php echo e(($value->VoucherTypeID==
+                            $voucher_master[0]->VoucherCodeID) ? 'selected=selected':''); ?>
+
+                            ><?php echo e($value->VoucherCode); ?>-<?php echo e($value->VoucherTypeName); ?></option>
                           <?php endforeach ?>
 
                         </select>
@@ -171,7 +172,7 @@
 
                         <div class="input-group" id="datepicker21">
                           <input type="date" id="VHDate" name="VHDate" class="form-control"
-                            value="{{ $voucher_master[0]->Date}}">
+                            value="<?php echo e($voucher_master[0]->Date); ?>">
                         </div>
 
 
@@ -231,16 +232,16 @@
                           style="margin-left: 15px;" /></td>
                       <td>
 
-                        <select name="ChOfAcc[]" id="ItemID0_{{$no}}" class="  form-select form-control-sm  select2 ">
-                          @foreach ($chartofaccount as $key => $value)
-                          <option value="{{$value->ChartOfAccountID}}" {{($value->ChartOfAccountID== $value1->ChOfAcc) ?
-                            'selected=selected':'' }} >{{$value->ChartOfAccountName}}</option>
-                          @endforeach
+                        <select name="ChOfAcc[]" id="ItemID0_<?php echo e($no); ?>" class="  form-select form-control-sm  select2 ">
+                          <?php $__currentLoopData = $chartofaccount; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($value->ChartOfAccountID); ?>" <?php echo e(($value->ChartOfAccountID== $value1->ChOfAcc) ?
+                            'selected=selected':''); ?> ><?php echo e($value->ChartOfAccountName); ?></option>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                       </td>
-                      <td> <select name="BranchID[]" id="BranchID_{{$no}}" class="  form-select supplier select2"
+                      <td> <select name="BranchID[]" id="BranchID_<?php echo e($no); ?>" class="  form-select supplier select2"
                           >
-                          @foreach ($branch as $key => $value)                          <option value="{{$value->id}}">{{$value->name}}</option>                          @endforeach
+                          <?php $__currentLoopData = $branch; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                          <option value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 
@@ -250,47 +251,47 @@
                       </td>
 
 
-                      <td> <select name="PartyID[]" id="PartyID_{{$no}}" class=" form-select party select2"
+                      <td> <select name="PartyID[]" id="PartyID_<?php echo e($no); ?>" class=" form-select party select2"
                           onchange="ajax_balance(this.value);">
                           <option value="">Select Supplier</option>
-                          @foreach ($party as $key => $value)
-                          <option value="{{$value->PartyID}}" {{($value->PartyID== $value1->PartyID) ?
-                            'selected=selected':'' }}>{{$value->PartyType}}-{{$value->PartyID}}-{{$value->PartyName}}</option>
-                          @endforeach
+                          <?php $__currentLoopData = $party; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($value->PartyID); ?>" <?php echo e(($value->PartyID== $value1->PartyID) ?
+                            'selected=selected':''); ?>><?php echo e($value->PartyType); ?>-<?php echo e($value->PartyID); ?>-<?php echo e($value->PartyName); ?></option>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
 
                       </td>
 
                       <td>
-                        <input type="text" name="Narration[]" id="RefNo_{{$no}}" class="form-control      "
-                          autocomplete="off" value="{{$value1->Narration}}">
+                        <input type="text" name="Narration[]" id="RefNo_<?php echo e($no); ?>" class="form-control      "
+                          autocomplete="off" value="<?php echo e($value1->Narration); ?>">
                       </td>
 
 
 
                       <td>
-                        <input type="number" name="Invoice[]" id="OPVAT_{{$no}}" class=" form-control  "
-                          autocomplete="off" value="{{$value1->InvoiceNo}}">
+                        <input type="number" name="Invoice[]" id="OPVAT_<?php echo e($no); ?>" class=" form-control  "
+                          autocomplete="off" value="<?php echo e($value1->InvoiceNo); ?>">
                       </td>
                       <td>
-                        <input type="number" name="RefNo[]" id="IPVAT_{{$no}}" class=" form-control  "
-                          autocomplete="off" value="{{$value1->RefNo}}">
+                        <input type="number" name="RefNo[]" id="IPVAT_<?php echo e($no); ?>" class=" form-control  "
+                          autocomplete="off" value="<?php echo e($value1->RefNo); ?>">
                       </td>
 
 
 
 
                       <td>
-                        <input type="number" name="Debit[]" id="debit_{{$no}}"
+                        <input type="number" name="Debit[]" id="debit_<?php echo e($no); ?>"
                           class=" form-control changesNo totalLinePricee" autocomplete="off"
                           onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"
-                          step="0.01" value="{{$value1->Debit}}">
+                          step="0.01" value="<?php echo e($value1->Debit); ?>">
                       </td>
                       <td>
-                        <input type="number" name="Credit[]" id="credit_{{$no}}"
+                        <input type="number" name="Credit[]" id="credit_<?php echo e($no); ?>"
                           class=" form-control changesNo totalLinePrice" autocomplete="off"
                           onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"
-                          step="0.01" value="{{$value1->Credit}}">
+                          step="0.01" value="<?php echo e($value1->Credit); ?>">
                       </td>
                     </tr>
                     <?php endforeach ?>
@@ -359,8 +360,8 @@
           </div>
           <div class="card-footer bg-light">
             <div><button type="submit" id="submit" class="btn btn-primary w-lg me-50 float-right">Update</button>
-              <a href="{{URL('/Voucher')}}" class="btn btn-secondary w-lg float-right">Cancel</a>
-              <a href="{{URL('/Attachment'.'/'.$voucher_master[0]->Voucher)}}" class="modal-link btn btn-success">Attach
+              <a href="<?php echo e(URL('/Voucher')); ?>" class="btn btn-secondary w-lg float-right">Cancel</a>
+              <a href="<?php echo e(URL('/Attachment'.'/'.$voucher_master[0]->Voucher)); ?>" class="modal-link btn btn-success">Attach
                 file</a>
 
             </div>
@@ -388,10 +389,10 @@
 
 
 
-<script src="{{asset('assets/invoice/js/jquery-1.11.2.min.js')}}"></script>
-<script src="{{asset('assets/invoice/js/jquery-ui.min.js')}}"></script>
-<script src="{{asset('assets/invoice/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/invoice/js/bootstrap-datepicker.js')}}"></script>
+<script src="<?php echo e(asset('assets/invoice/js/jquery-1.11.2.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/invoice/js/jquery-ui.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/invoice/js/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/invoice/js/bootstrap-datepicker.js')); ?>"></script>
 <!-- <script src="js/ajax.js"></script> -->
 
 <script>
@@ -405,13 +406,13 @@ var i=$('table tr').length;
 $(".addmore").on('click',function(){
   html = '<tr class="bg-light border-1 border-light ">';
   html += '<td ><input class="case" type="checkbox" style="margin-left: 15px;" /></td>';
-  html += '<td><select name="ChOfAcc[]" id="ItemID0_'+i+'" class="form-select  select2 changesNoo">  <option value="">Select Account</option>@foreach ($chartofaccount as $key => $value) <option value="{{$value->ChartOfAccountID}}">{{$value->ChartOfAccountName}}</option>@endforeach</select> </td>';
+  html += '<td><select name="ChOfAcc[]" id="ItemID0_'+i+'" class="form-select  select2 changesNoo">  <option value="">Select Account</option><?php $__currentLoopData = $chartofaccount; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <option value="<?php echo e($value->ChartOfAccountID); ?>"><?php echo e($value->ChartOfAccountName); ?></option><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></select> </td>';
 
 
 
   // html += '<td><select name="ItemID[]" id="ItemID_'+i+'" class="form-select select2 changesNoo"><option value="">Select Item</option><option value="">b</option></select></td>';
-  html += '<td><select name="BranchID[]" id="BranchID_'+i+'" class="   form-select select2 supplier" onchange="ajax_balance(this.value);">                        <option value="">Select Branch</option>                          @foreach ($branch as $key => $value)                          <option value="{{$value->id}}">{{$value->name}}</option>                          @endforeach                        </select></td>';
-  html += '<td><select name="PartyID[]" id="PartyID_'+i+'"  onchange="ajax_balance(this.value);" class="form-select party select2"> <option value="">Select Party</option>@foreach ($party as $key => $value) <option value="{{$value->PartyID}}">{{$value->PartyType}}-{{$value->PartyID}}-{{$value->PartyName}}</option>@endforeach</select></td>';
+  html += '<td><select name="BranchID[]" id="BranchID_'+i+'" class="   form-select select2 supplier" onchange="ajax_balance(this.value);">                        <option value="">Select Branch</option>                          <?php $__currentLoopData = $branch; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                          <option value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                        </select></td>';
+  html += '<td><select name="PartyID[]" id="PartyID_'+i+'"  onchange="ajax_balance(this.value);" class="form-select party select2"> <option value="">Select Party</option><?php $__currentLoopData = $party; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <option value="<?php echo e($value->PartyID); ?>"><?php echo e($value->PartyType); ?>-<?php echo e($value->PartyID); ?>-<?php echo e($value->PartyName); ?></option><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></select></td>';
 
   html += '<td><input type="text" name="Narration[]" id="RefNo_'+i+'" class="form-control changesNo" ></td>';
  
@@ -621,7 +622,7 @@ dm = vhdate.split("-");
        // alert($("#csrf").val());
  
 $('#result').prepend('')
-$('#result').prepend('<img id="theImg" src="{{asset('assets/images/ajax.gif')}}" />')
+$('#result').prepend('<img id="theImg" src="<?php echo e(asset('assets/images/ajax.gif')); ?>" />')
  
        var SupplierID = SupplierID;
 
@@ -630,7 +631,7 @@ $('#result').prepend('<img id="theImg" src="{{asset('assets/images/ajax.gif')}}"
         /*  $("#butsave").attr("disabled", "disabled"); */
         // alert(SupplierID);
           $.ajax({
-              url: "{{URL('/Ajax_Balance')}}",
+              url: "<?php echo e(URL('/Ajax_Balance')); ?>",
               type: "POST",
               data: {
                   _token: $("#csrf").val(),
@@ -680,7 +681,7 @@ function ajax_vhno()
         // alert(SupplierID);
         
           $.ajax({
-              url: "{{URL('/Ajax_VHNO')}}",
+              url: "<?php echo e(URL('/Ajax_VHNO')); ?>",
               type: "POST",
               data: {
                   _token: $("#csrf").val(),
@@ -705,7 +706,7 @@ function ajax_vhno1()
 {
 
        // onload php date will work not boostrap picker
-       var VHDate = {{date('Ym')}};
+       var VHDate = <?php echo e(date('Ym')); ?>;
 
 
  
@@ -715,7 +716,7 @@ function ajax_vhno1()
         // alert(SupplierID);
         
           $.ajax({
-              url: "{{URL('/Ajax_VHNO')}}",
+              url: "<?php echo e(URL('/Ajax_VHNO')); ?>",
               type: "POST",
               data: {
                   _token: $("#csrf").val(),
@@ -794,7 +795,7 @@ $( "#submit" ).click(function() {
         disableMobile: "true",
         minDate: "",
         maxDate: new Date().fp_incr(365),
-        defaultDate: "{{$voucher_master[0]->Date}}",
+        defaultDate: "<?php echo e($voucher_master[0]->Date); ?>",
          /* setting initial date of return picker to the one selected in
         outbound*/
         onChange: function (dateStr, dateObj) {
@@ -813,34 +814,34 @@ $( "#submit" ).click(function() {
 
 
 
-<script src="{{asset('assets/js/scripts/forms/form-select2.min.js')}}"></script>
+<script src="<?php echo e(asset('assets/js/scripts/forms/form-select2.min.js')); ?>"></script>
 
 
 
 <!-- BEGIN: Vendor JS-->
-<script src="{{asset('assets/vendors/js/vendors.min.js')}}"></script>
+<script src="<?php echo e(asset('assets/vendors/js/vendors.min.js')); ?>"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="{{asset('assets/vendors/js/forms/repeater/jquery.repeater.min.js')}}"></script>
-<script src="{{asset('assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
-<script src="{{asset('assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+<script src="<?php echo e(asset('assets/vendors/js/forms/repeater/jquery.repeater.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/vendors/js/forms/select/select2.full.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/vendors/js/pickers/flatpickr/flatpickr.min.js')); ?>"></script>
 <!-- END: Page Vendor JS-->
 
-<script src="{{asset('assets/js/scripts/forms/form-repeater.min.js')}}"></script>
+<script src="<?php echo e(asset('assets/js/scripts/forms/form-repeater.min.js')); ?>"></script>
 
 <!-- BEGIN: Theme JS-->
-<script src="{{asset('assets/js/core/app-menu.min.js')}}"></script>
-<script src="{{asset('assets/js/core/app.min.js')}}"></script>
-<script src="{{asset('assets/js/scripts/customizer.min.js')}}"></script>
+<script src="<?php echo e(asset('assets/js/core/app-menu.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/core/app.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/scripts/customizer.min.js')); ?>"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="{{asset('assets/js/scripts/pages/app-invoice.min.js')}}"></script>
+<script src="<?php echo e(asset('assets/js/scripts/pages/app-invoice.min.js')); ?>"></script>
 <!-- END: Page JS-->
 
 
-<script type="text/javascript" src="{{asset('assets/src/jquery.modalLink-1.0.0.js')}}"></script>
+<script type="text/javascript" src="<?php echo e(asset('assets/src/jquery.modalLink-1.0.0.js')); ?>"></script>
 
 <script type="text/javascript">
   (function () {
@@ -889,4 +890,5 @@ $(document).ready(function() {
 </script> -->
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('tmp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\eits\al-molabi-staging\resources\views/voucher_edit.blade.php ENDPATH**/ ?>

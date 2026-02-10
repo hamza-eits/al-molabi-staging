@@ -96,7 +96,7 @@ color: #5E5873;
                             <label class="col-form-label" for="first-name">Invoice #</label>
                           </div>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" name="Voucher" id="Voucher" value="<?php echo e($vhno); ?>">
+                            <input type="text" class="form-control" name="Voucher" id="Voucher" value="<?php echo e($vhno); ?>" readonly>
                             </div>
                           </div>
                         </div>
