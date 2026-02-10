@@ -1818,7 +1818,7 @@ $log= DB::table('log')->insertGetId($logdata);
       'SupplierID.*' => 'required',
       // 'PaxName.*' => 'required',  // Validate each PaxName
       
-      'Fare.*' => 'required', // Validate each Passport
+      // 'Fare.*' => 'required', // Validate each Passport
       'ItemTotal.*' => 'required', // Validate each Passport
       'Date' => 'required', // Validate each Passport
       
@@ -1828,7 +1828,7 @@ $log= DB::table('log')->insertGetId($logdata);
       'SalemanID.required' => 'Please assign a salesman.',
       'ItemID0.*.required' => 'Each item must be selected.',
       'SupplierID.*.required' => 'Each supplier must be selected.',
-      'Fare.*.required' => 'Cost price is required for each item.',
+      // 'Fare.*.required' => 'Cost price is required for each item.',
       'ItemTotal.*.required' => 'Total amount is required for each item.',
       'Date.required' => 'The date is required.',
       ]);
@@ -2462,7 +2462,7 @@ $log= DB::table('log')->insertGetId($logdata);
       'SupplierID.*' => 'required',
       // 'PaxName.*' => 'required',  // Validate each PaxName
       
-      'Fare.*' => 'required', // Validate each Passport
+      // 'Fare.*' => 'required', // Validate each Passport
       'ItemTotal.*' => 'required', // Validate each Passport
       'Date' => 'required', // Validate each Passport
       
@@ -2472,7 +2472,7 @@ $log= DB::table('log')->insertGetId($logdata);
       'SalemanID.required' => 'Please assign a salesman.',
       'ItemID0.*.required' => 'Each item must be selected.',
       'SupplierID.*.required' => 'Each supplier must be selected.',
-      'Fare.*.required' => 'Cost price is required for each item.',
+      // 'Fare.*.required' => 'Cost price is required for each item.',
       'ItemTotal.*.required' => 'Total amount is required for each item.',
       'Date.required' => 'The date is required.',
       ]);
