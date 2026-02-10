@@ -38,25 +38,26 @@
 <?php 
 $company = DB::table('company')->first(); ?>
 <body onload="window.print();">
-@if($balance>0)
-  <img align="right" src="{{asset('assets/images/unpaid-invoice.png')}}" alt="" class="paid-invoice-img">
-  @else
-  <img align="right" src="{{asset('assets/images/paid-invoice.png')}}" alt="" class="paid-invoice-img">
-  @endif
+<?php if($balance>0): ?>
+  <img align="right" src="<?php echo e(asset('assets/images/unpaid-invoice.png')); ?>" alt="" class="paid-invoice-img">
+  <?php else: ?>
+  <img align="right" src="<?php echo e(asset('assets/images/paid-invoice.png')); ?>" alt="" class="paid-invoice-img">
+  <?php endif; ?>
   <table width="100%" border="0" style="margin-top: 0px;">
     <tr>
       <th width="50%" scope="col" align="left" style="vertical-align: top;">
-       <img src="{{ asset('documents/'.$company->Logo) }}" alt="">
+       <img src="<?php echo e(asset('documents/'.$company->Logo)); ?>" alt="">
       </th>
        
       <th width="50%" scope="col">&nbsp;</th>
     </tr>
     <tr>
      <td width="50%" style="line-height: 12pt">
-        {{$company->Address}}<br />
-        {{$company->Contact}} <br>
-        {{$company->Mobile}} <br />
-        {{$company->Email}}
+        <?php echo e($company->Address); ?><br />
+        <?php echo e($company->Contact); ?> <br>
+        <?php echo e($company->Mobile); ?> <br />
+        <?php echo e($company->Email); ?>
+
       </td>
       <td>
          
@@ -67,7 +68,7 @@ $company = DB::table('company')->first(); ?>
       <td></td>
       <td width="50%" align="right" style="font-size: 28pt; font-weight: bolder;">
         <br><br>
-          {{ env('APP_TAX_NAME')}} INVOICE 
+          <?php echo e(env('APP_TAX_NAME')); ?> INVOICE 
          
       </td>
     </tr>
@@ -75,7 +76,7 @@ $company = DB::table('company')->first(); ?>
       <td>&nbsp;</td>
       <td>
         <div align="right" style="margin-top: 15px;"><strong>Balance Due<br />
-        AED{{ number_format($invoice_mst[0]->Balance, 2) }}</strong></div><br>
+        AED<?php echo e(number_format($invoice_mst[0]->Balance, 2)); ?></strong></div><br>
       </td>
     </tr>
   </table>
@@ -83,16 +84,16 @@ $company = DB::table('company')->first(); ?>
 <table width="100%" border="0">
   <tr>
     <th width="50%" valign="bottom" scope="col"><div align="left">Bill To<br />
-      {{$invoice_mst[0]->PartyName}} <br /> {{$invoice_mst[0]->Phone}} </div></th>
+      <?php echo e($invoice_mst[0]->PartyName); ?> <br /> <?php echo e($invoice_mst[0]->Phone); ?> </div></th>
     <th width="50%" scope="col"><div align="right">
       <table width="75%" border="0" align="right">
         <tr >
           <th align="right" style="text-align:right;"  >Invoice No :</th>
-          <td align="right" style="text-align:right;"  >{{$invoice_mst[0]->InvoiceCode}}</td>
+          <td align="right" style="text-align:right;"  ><?php echo e($invoice_mst[0]->InvoiceCode); ?></td>
         </tr>
          <tr >
           <th align="right" style="text-align:right;"  >Invoice Date :</th>
-          <td align="right" style="text-align:right;"  >{{$invoice_mst[0]->Date}}</td>
+          <td align="right" style="text-align:right;"  ><?php echo e($invoice_mst[0]->Date); ?></td>
         </tr>
         <tr>
           <td align="right" style="text-align:right;"  >Terms :</td>
@@ -100,13 +101,10 @@ $company = DB::table('company')->first(); ?>
         </tr>
         <tr>
           <td align="right" style="text-align:right;"  >Due Date :</td>
-          <td align="right" style="text-align:right;"  >{{$invoice_mst[0]->DueDate}}</td>
+          <td align="right" style="text-align:right;"  ><?php echo e($invoice_mst[0]->DueDate); ?></td>
         </tr>
       
-        {{-- <tr>
-          <td align="right" style="text-align:right;" >VAT No. :</td>
-          <td align="right" style="text-align:right;" >100535182800003</td>
-        </tr> --}}
+        
       </table>
     </div></th>
   </tr>
@@ -130,7 +128,7 @@ $total=0;
 
  ?>
 
-@foreach($invoice_det as $key => $value) 
+<?php $__currentLoopData = $invoice_det; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
 
 <?php 
 
@@ -141,13 +139,13 @@ $total=$total + $value->Total;
  ?>
 
   <tr >
-    <td >{{++$key}}</td>
-    <td style="padding-top: 10px;">{{$value->ItemName}}<br>PAX:{{$value->PaxName}}<br>Sector:{{$value->Sector}}</td>
-      <!--  <td align="center">{{number_format($value->Service,2)}}</td>
-    <td align="center">{{number_format($value->Taxable,2)}}<br>  {{($value->Taxable>0) ? '5.00%' : '' }} </td> -->
-    <td align="center">{{number_format($value->Total,2)}}</td>
+    <td ><?php echo e(++$key); ?></td>
+    <td style="padding-top: 10px;"><?php echo e($value->ItemName); ?><br>PAX:<?php echo e($value->PaxName); ?><br>Sector:<?php echo e($value->Sector); ?></td>
+      <!--  <td align="center"><?php echo e(number_format($value->Service,2)); ?></td>
+    <td align="center"><?php echo e(number_format($value->Taxable,2)); ?><br>  <?php echo e(($value->Taxable>0) ? '5.00%' : ''); ?> </td> -->
+    <td align="center"><?php echo e(number_format($value->Total,2)); ?></td>
   </tr>
-@endforeach
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
   <tr>
     <td colspan="3"><hr noshade="noshade" /></td>
@@ -155,9 +153,9 @@ $total=$total + $value->Total;
   <tr>
     <td>&nbsp;</td>
       <td align="right"><strong>SubTotal</strong></td>
-     <!-- <td align="center">{{number_format($service,2)}}</td> -->
-     <!-- <td align="center">{{number_format($taxable,2)}}</td> -->
-     <td align="center">{{number_format($total,2)}}</td>
+     <!-- <td align="center"><?php echo e(number_format($service,2)); ?></td> -->
+     <!-- <td align="center"><?php echo e(number_format($taxable,2)); ?></td> -->
+     <td align="center"><?php echo e(number_format($total,2)); ?></td>
     
   </tr>
   <tr>
@@ -170,20 +168,20 @@ $total=$total + $value->Total;
 
       <tr>
         <td height="25" align="right" style="padding-right: 25px;"><strong>Total</strong></td>
-        <td height="25"><strong>AED{{number_format($invoice_mst[0]->Total,2)}}</strong></td>
+        <td height="25"><strong>AED<?php echo e(number_format($invoice_mst[0]->Total,2)); ?></strong></td>
       </tr>
       <tr>
         <td height="25" align="right" style="padding-right: 25px;">Payment Made </td>
-        <td style="color: red;"> (-) {{number_format($invoice_mst[0]->Paid,2)}} </td>
+        <td style="color: red;"> (-) <?php echo e(number_format($invoice_mst[0]->Paid,2)); ?> </td>
       </tr>
       <tr style="background-color: #e9e9e9;">
         <td height="25" align="right" style="padding-right: 25px;"><strong>Balance Due</strong> </td>
-        <td height="25"><strong>AED{{number_format($invoice_mst[0]->Balance,2)}}</strong></td>
+        <td height="25"><strong>AED<?php echo e(number_format($invoice_mst[0]->Balance,2)); ?></strong></td>
       </tr>
 
         <tr  >
         <td height="25" align="right" style="padding-right: 25px;"><strong>Payment Mode</strong> </td>
-        <td height="25"><strong>{{$invoice_mst[0]->PaymentMode}}</strong></td>
+        <td height="25"><strong><?php echo e($invoice_mst[0]->PaymentMode); ?></strong></td>
       </tr>
 
     </table></td>
@@ -198,8 +196,8 @@ $total=$total + $value->Total;
   </tr>
   <tr>
     <td height="25" style="padding-left: 10px;">Standard Rate (5%) </td>
-    <td align="right">AED{{number_format($service,2)}}</td>
-    <td align="right" style="padding-right: 10px;">AED{{number_format($taxable,2)}}</td>
+    <td align="right">AED<?php echo e(number_format($service,2)); ?></td>
+    <td align="right" style="padding-right: 10px;">AED<?php echo e(number_format($taxable,2)); ?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -246,3 +244,4 @@ $total=$total + $value->Total;
 
 </body>
 </html>
+<?php /**PATH E:\eits\al-molabi-staging\resources\views/invoice_pdf.blade.php ENDPATH**/ ?>
