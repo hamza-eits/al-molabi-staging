@@ -1063,10 +1063,18 @@ class Accounts extends Controller
         return $query->where('BranchID', session('BranchID'));
         })
       ->get();
+    
+     $voucherTitles = [
+      'BR' => 'RECEIPT VOUCHER',
+      'CR' => 'RECEIPT VOUCHER',
+      'BP' => 'PAYMENT VOUHCER',
+      'CP' => 'PAYMENT VOUCHER',
+      'JV' => 'JOURNAL VOUCHER',
+    ];
 
  
 
-    return view('voucher_receipt_view', compact('pagetitle', 'voucher_master'));
+    return view('voucher_receipt_view', compact('pagetitle', 'voucher_master', 'voucherTitles'));
   }
 
   public  function VoucherDelete($id)
