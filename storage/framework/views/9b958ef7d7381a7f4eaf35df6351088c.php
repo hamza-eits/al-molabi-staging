@@ -513,7 +513,7 @@ $user = DB::table('user')->get();
                             <label for="voucher-number" class="col-md-2 col-form-label fw-bold">Voucher#</label>
                             <div class="col-md-4">
                                 <input class="form-control" type="text" id="voucherNumber" name="voucher_number"
-                                    value="">
+                                    value="" readonly>
                             </div>
                         </div>
 
